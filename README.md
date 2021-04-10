@@ -23,3 +23,14 @@ There can be some possible errors while matching which may affect the result. Pa
 **SIFT RESULTS `(0.88 and 0.93 accuracy)`** over 5000 images:
 ![query2](/results/q2-1.png)
 ![query3](/results/q3-1.png)
+
+_______________________________________________________________________
+
+## Color Histogram
+The method was implemented with the usage of 4 helper functions:
+**`chi2_distance(hist1, hist2, eps = 1e-10)`** and **`euclidian_distance(hist1, hist2)`** | Chi-squared and Euclidian distance was used as a metric. Used to find the distance between the histograms.
+
+**`genHists(idx, img)`** | Builds the histogram of all 5000 images and stores to dictionary. 
+The main helper function to generate the histogram from the image. It takes the image and from object’s attribute(shape) we take rows, columns and channels(which is not used). Then the zero vector of 16^3 length is created. The bin size was set to 16 (experiments and trials). Once the histograms are generated they are compared to the queries histograms with chi2_distance() function. The smaller value, the more similar the images.
+
+Method catches the similar images and place to the top as it has same color distribution, and the images have same orientation and scale. So, this method is robust to the scale, orientation and color ditribution.
