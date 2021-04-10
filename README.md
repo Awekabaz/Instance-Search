@@ -20,6 +20,6 @@ _______________________________________________________________________
 4. Outlier rejection
 There can be some possible errors while matching which may affect the result. Pass the set of points from both the sets to **`cv2.findHomography(ptsQ, ptsI, cv2.RANSAC,5.0)`**. The algorithm uses RANSAC with 99.5% confidence applied to reject the outliers and to find the Homography Matrix (which were not used) and return a mask which specifies the inlier and outlier points. More inliers the sets have, the more similar they are
 
-**SIFT RESULTS `(0.88 and 0.93 accuracy)`**
+**SIFT RESULTS `(0.88 and 0.93 accuracy)`** over 5000 images:
 ![query2](/results/q2-1.png)
 ![query3](/results/q3-1.png)
